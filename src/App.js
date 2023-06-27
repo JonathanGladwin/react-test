@@ -77,7 +77,7 @@ function App() {
         //const URL = "http://ec2-3-145-165-206.us-east-2.compute.amazonaws.com:8080/searchAll"
         //const URL = "https://awstestspringboot.s3.us-east-2.amazonaws.com/test/test.json";
         //const response = await fetch(URL)
-        const response = await fetch('https://cors-anywhere.herokuapp.com/http://ec2-3-145-165-206.us-east-2.compute.amazonaws.com:8080/searchAll', { header: header })
+        const response = await fetch('/http://ec2-3-145-165-206.us-east-2.compute.amazonaws.com:8080/searchAll', { header: header })
 
         /*const response = await fetch('http://ec2-3-145-165-206.us-east-2.compute.amazonaws.com:8080/searchAll' , {
             method: 'GET',
