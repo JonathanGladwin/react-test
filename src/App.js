@@ -14,7 +14,7 @@ function App() {
         {
 
             name: "In Market Date",
-            selector: (row) => row.userId,
+            selector: (row) => row.memberno,
             width: "120px",
             wrap: true
         },
@@ -25,22 +25,23 @@ function App() {
         },
         {
             name: "DM Number",
-            selector: (row) => row.title,
+            selector: (row) => row.dmnumber,
             wrap: true
         },
         {
             name: "Document ID",
-            selector: (row) => row.title,
+            selector: (row) => row.documentid,
             wrap: true
         },
         {
             name: "Meeting Contact",
-            selector: (row) => row.title,
+            selector: (row) => row.marketingcontact,
             wrap: true
         },
         {
             name: "Reference",
-            selector: (row) => (row.completed ? "Yes" : "No"),
+            //selector: (row) => (row.completed ? "Yes" : "No"),
+            selector: (row) => row.ref,
             wrap: true
         },
     ]
@@ -71,8 +72,9 @@ function App() {
     async function fetchTableData() {
         setLoading(true)
         //const URL = "https://jsonplaceholder.typicode.com/todos"
+        const URL = "http://ec2-3-145-165-206.us-east-2.compute.amazonaws.com:8080/searchAll"
         //const response = await fetch(URL)
-        const response = await fetch('https://awstestspringboot.s3.us-east-2.amazonaws.com/test/test.json')
+        const response = await fetch(URL)
 
         const users = await response.json()
         setData(users)
