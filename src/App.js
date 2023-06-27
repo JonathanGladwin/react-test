@@ -72,9 +72,20 @@ function App() {
     async function fetchTableData() {
         setLoading(true)
         //const URL = "https://jsonplaceholder.typicode.com/todos"
-        const URL = "http://ec2-3-145-165-206.us-east-2.compute.amazonaws.com:8080/searchAll"
+        const header = new Headers({ "Access-Control-Allow-Origin": "*" });
+
+        //const URL = "http://ec2-3-145-165-206.us-east-2.compute.amazonaws.com:8080/searchAll"
+        //const URL = "https://awstestspringboot.s3.us-east-2.amazonaws.com/test/test.json";
         //const response = await fetch(URL)
-        const response = await fetch(URL)
+        const response = await fetch('https://cors-anywhere.herokuapp.com/http://ec2-3-145-165-206.us-east-2.compute.amazonaws.com:8080/searchAll', { header: header })
+
+        /*const response = await fetch('http://ec2-3-145-165-206.us-east-2.compute.amazonaws.com:8080/searchAll' , {
+            method: 'GET',
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Content-type' : 'application/json'
+            }
+        })*/
 
         const users = await response.json()
         setData(users)
